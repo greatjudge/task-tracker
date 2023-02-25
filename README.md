@@ -7,13 +7,22 @@ This is the backend part of the Task Tracker project, which is responsible for h
 
 To run this backend, you will need to have the following installed on your system:
 
-   * Python 3.x
-   * Django 3.x
+   * Python
+   * Django
    * Django REST framework
-   * This DB
+   * Some DB
 
-## Getting Started
-pass
+## Installation
+1. Clone the repository: `git clone https://github.com/your-username/task-tracker-backend.git`.
+2. Navigate to the project directory: `cd task-tracker-backend`.
+3. Create a virtual environment: `python3 -m venv env`.
+4. Activate the virtual environment: `source env/bin/activate (on Windows: env\Scripts\activate)`.
+5. Install the dependencies: `pip install -r requirements.txt`.
+6. Run the database migrations: `python manage.py migrate`.
+
+## Usage
+To start the server, run the following command: `python manage.py runserver`.  
+The server will start running at `http://localhost:8000/`.
 
 ## API Endpoints
 This backend provides the following API endpoints:
