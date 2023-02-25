@@ -13,8 +13,8 @@ To run this backend, you will need to have the following installed on your syste
    * Some DB
 
 ## Installation
-1. Clone the repository: `git clone https://github.com/your-username/task-tracker-backend.git`.
-2. Navigate to the project directory: `cd task-tracker-backend`.
+1. Clone the repository.
+2. Navigate to the project directory: `cd task-tracker`.
 3. Create a virtual environment: `python3 -m venv env`.
 4. Activate the virtual environment: `source env/bin/activate (on Windows: env\Scripts\activate)`.
 5. Install the dependencies: `pip install -r requirements.txt`.
