@@ -9,8 +9,8 @@
     - Request Body:
         - `title` (required): Task title
         - `description` (optional): Task description
-        - `section` (optional): Task section ID, default `personal`
-        - `status` (optional): Task status ID, default `todo`
+        - `section` (optional): Task section ID
+        - `status` (optional): Task status ID
         - `priority` (optional): Task priority
         - `start_datetime` (required): Start datetime in ISO format (yyyy-MM-dd'T'HH:mm:ss.SSSXXX)
         - `due_datetime` (optional): Due datetime in ISO format (yyyy-MM-dd'T'HH:mm:ss.SSSXXX)
