@@ -32,6 +32,20 @@ This backend provides the following API endpoints:
     * POST /tasks: Create a new task
     * PATCH /tasks/:id: Update a specific task by ID
     * DELETE /tasks/:id: Delete a specific task by ID
+
+### Task Section Endpoints
+    * GET /sections: Get all sections for the current user
+    * GET /sections/:id: Get a specific section by ID
+    * POST /sections: Create a new section
+    * PATCH /sections/:id: Update a specific section by ID
+    * DELETE /sections/:id: Delete a specific section by ID
+    
+### Task Status Endpoints
+    * GET /statuses: Get all statuses for the current user
+    * GET /statuses/:id: Get a specific status by ID
+    * POST /statuses: Create a new status
+    * PATCH /statuses/:id: Update a specific status by ID
+    * DELETE /statuses/:id: Delete a specific status by ID
     
 ### Reminder Endpoints
     * GET /reminders: Get all reminders for the current user
