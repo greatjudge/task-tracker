@@ -1,9 +1,11 @@
 from .serializers import TaskSerializer, TaskStatusSerializer, TaskSectionSerializer
 from .models import Task, TaskSection, TaskStatus
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 
 
 class TasksList(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticated]
     serializer_class = TaskSerializer
 
     def get_queryset(self):
@@ -11,6 +13,7 @@ class TasksList(generics.ListCreateAPIView):
 
 
 class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticated]
     serializer_class = TaskSerializer
 
     def get_queryset(self):
@@ -18,6 +21,7 @@ class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class TaskSectionList(generics.ListAPIView):
+    permission_classes = [IsAuthenticated]
     serializer_class = TaskSectionSerializer
 
     def get_queryset(self):
@@ -25,6 +29,7 @@ class TaskSectionList(generics.ListAPIView):
 
 
 class TaskSectionDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticated]
     serializer_class = TaskSectionSerializer
 
     def get_queryset(self):
@@ -32,6 +37,7 @@ class TaskSectionDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class TaskStatusList(generics.ListAPIView):
+    permission_classes = [IsAuthenticated]
     serializer_class = TaskStatusSerializer
 
     def get_queryset(self):
@@ -39,6 +45,7 @@ class TaskStatusList(generics.ListAPIView):
 
 
 class TaskStatusDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticated]
     serializer_class = TaskStatusSerializer
 
     def get_queryset(self):
