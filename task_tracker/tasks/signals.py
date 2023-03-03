@@ -1,7 +1,7 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth import get_user_model
-from tasks.models import TaskStatus, DEFAULT_STATUS, \
+from .models import TaskStatus, DEFAULT_STATUS, \
     TaskSection, DEFAULT_SECTION
 
 
