@@ -46,8 +46,12 @@ class Task(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    section = models.ForeignKey(TaskSection, on_delete=models.CASCADE)
-    status = models.ForeignKey(TaskStatus, on_delete=models.CASCADE)
+    section = models.ForeignKey(TaskSection,
+                                on_delete=models.CASCADE,
+                                limit_choices_to={'user': models.F('user')})
+    status = models.ForeignKey(TaskStatus,
+                               on_delete=models.CASCADE,
+                               limit_choices_to={'user': models.F('user')})
     # status = models.CharField(choices=TASK_STATUS, blank=True)  # FIX
     priority = models.IntegerChoices('Priority', 'ONE TWO THREE FOUR FIVE')
     linked_tasks = models.ManyToManyField('self', blank=True,
