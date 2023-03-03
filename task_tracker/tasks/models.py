@@ -54,7 +54,7 @@ class Task(models.Model):
                                           symmetrical=False,
                                           related_name='required_by')
     start_datetime = models.DateTimeField()
-    due_datetime = models.DateTimeField(blank=True)
+    due_datetime = models.DateTimeField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_completed = models.BooleanField(default=False)
