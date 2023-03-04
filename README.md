@@ -31,6 +31,7 @@ This backend provides the following API endpoints:
     * GET api/tasks/:id: Get a specific task by ID
     * POST api/tasks: Create a new task
     * PUT api/tasks/:id: Update a specific task by ID
+    * PATCH api/tasks/:id: Partial update a specific task by ID
     * DELETE api/tasks/:id: Delete a specific task by ID
 
 ### Task Section Endpoints
@@ -38,22 +39,25 @@ This backend provides the following API endpoints:
     * GET api/sections/:id: Get a specific section by ID
     * POST api/sections: Create a new section
     * PUT api/sections/:id: Update a specific section by ID
+    * PATCH api/sections/:id: Partial update a specific section by ID
     * DELETE api/sections/:id: Delete a specific section by ID
     
 ### Task Status Endpoints
     * GET api/statuses: Get all statuses for the current user
     * GET api/statuses/:id: Get a specific status by ID
     * POST api/statuses: Create a new status
+    * PATCH api/statuses/:id: Partial update a specific status by ID
     * PUT api/statuses/:id: Update a specific status by ID
     * DELETE api/statuses/:id: Delete a specific status by ID
 
-## User Endpoints
-  * GET /users/<user_id>/: Returns details of a specific user
-  * PUT /users/<user_id>/: Updates an existing user
-  * DELETE /users/<user_id>/: Deletes a specific user
-  * POST /users/register/: Register user
-  * POST /token/: auth user and get access and refresh tokens
-  * POST /token/refresh: get access token
+### User Endpoints
+    * GET /users/<user_id>/: Returns details of a specific user
+    * PUT /users/<user_id>/: Update an existing user
+    * PATCH /users/<user_id>/: Partial update an existing user
+    * DELETE /users/<user_id>/: Deletes a specific user
+    * POST /users/register/: Register user
+    * POST /token/: auth user and get access and refresh tokens
+    * POST /token/refresh: get access token
 
 
 
