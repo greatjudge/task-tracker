@@ -18,6 +18,7 @@ To run this backend, you will need to have the following installed on your syste
 3. Create a virtual environment: `python3 -m venv env`.
 4. Activate the virtual environment: `source env/bin/activate (on Windows: env\Scripts\activate)`.
 5. Install the dependencies: `pip install -r requirements.txt`.
+6. Dont remember to set DJANGO_SECRET_KEY. You can create the file .env and write to it DJANGO_SECRET_KEY="...(this key)...".
 6. Run the database migrations: `python manage.py migrate`.
 
 ## Usage
