@@ -129,7 +129,7 @@
 5. POST /users/register/
    - Register user
    - Request Body:
-     - `email`
-     - `password`
-     - `password2`
-     - `username`
+     - `email` (required): user email address
+     - `password` (required): user password 
+     - `password2` (required): password that must match with password
+     - `username` (required): username
