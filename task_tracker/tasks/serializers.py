@@ -14,9 +14,7 @@ class TaskSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def validate_linked_tasks(self, attrs):
-        print(attrs)
         linked_task_userids = set([task.user.id for task in attrs])  # does it effective getting from db?
-        print(linked_task_userids)
         if (len(linked_task_userids) != 1
                 or linked_task_userids.pop() != self.context['request'].user.id):
             raise serializers.ValidationError('Related tasks must belong to the user')
