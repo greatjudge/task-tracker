@@ -65,7 +65,8 @@ class ChangePasswordSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         user = self.context['request'].user
         if user.pk != instance.pk:
-            raise serializers.ValidationError({"authorize": "You dont have permission for this user."})
+            raise serializers.ValidationError({"authorize":
+                                               "You dont have permission for this user."})
         instance.set_password(validated_data['password'])
         instance.save()
         return instance
@@ -93,7 +94,8 @@ class UpdateUserSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         user = self.context['request'].user
         if user.pk != instance.pk:
-            raise serializers.ValidationError({"authorize": "You dont have permission for this user."})
+            raise serializers.ValidationError({"authorize":
+                                               "You dont have permission for this user."})
 
         instance.first_name = validated_data.get('first_name',
                                                  self.instance.first_name)
@@ -103,5 +105,3 @@ class UpdateUserSerializer(serializers.ModelSerializer):
         instance.username = validated_data.get('username', self.instance.username)
         instance.save()
         return instance
-
-

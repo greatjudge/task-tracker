@@ -40,4 +40,3 @@ class UserDetail(generics.RetrieveAPIView):
 
     def get_queryset(self):
         return User.objects.filter(pk=self.request.user.id)
-

@@ -31,7 +31,8 @@ class TaskSerializer(serializers.ModelSerializer):
             else self.instance.start_datetime
         due_datetime = data.get('due_datetime')
         if due_datetime is None:
-            if self.instance is not None and hasattr(self.instance, 'due_datetime'):
+            if (self.instance is not None
+                    and hasattr(self.instance, 'due_datetime')):
                 due_datetime = self.instance.due_datetime
         if due_datetime is not None and start_datetime > due_datetime:
             raise serializers.ValidationError("start_datetime could not be greater than due_datetime")
