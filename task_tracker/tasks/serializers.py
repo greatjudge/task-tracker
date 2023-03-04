@@ -14,7 +14,6 @@ class TaskSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def validate(self, data):
-        # print(data['section'].user, data['status'].user, data['user'].id)
         user = self.context['request'].user
         if data['section'].user.id != user.id:
             raise serializers.ValidationError('Cannot create task with section created by another user')

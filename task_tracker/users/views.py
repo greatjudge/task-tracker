@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from rest_framework import generics
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from .serializers import RegisterSerializer, UserSerializer
-from .permissions import IsUserOrAdmin
+
 
 User = get_user_model()
 
@@ -19,8 +19,10 @@ class UsersList(generics.ListAPIView):
     permission_classes = (IsAdminUser,)
 
 
-class UserDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = User.objects.all()
+class UserDetail(generics.RetrieveUpdateAPIView):
     serializer_class = UserSerializer
-    permission_classes = (IsAuthenticated, IsUserOrAdmin)
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        return User.objects.filter(pk=self.request.user.id)
 

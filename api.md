@@ -134,3 +134,8 @@
    - Request Body:
      - `username` (required): username
      - `password` (required): user password
+
+6. POST /token/refresh
+   - get access token
+   - Request Body:
+     - `refresh` (required): refresh token
