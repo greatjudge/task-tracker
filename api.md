@@ -116,7 +116,7 @@
     - URL Parameters:
         - `user_id` (required): ID of the user
     - Request Body:
-        - 'username` (opt)
+        - `username` (opt)
         - `first_name` (optional): User first name
         - `last_name` (optional): User last name
         - `email` (optional): User email address
@@ -125,3 +125,11 @@
     - Deletes a specific user
     - URL Parameters:
         - `user_id` (required): ID of the user
+
+5. POST /users/register/
+   - Register user
+   - Request Body:
+     - `email`
+     - `password`
+     - `password2`
+     - `username`
