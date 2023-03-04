@@ -14,7 +14,6 @@
         - `priority` (optional): Task priority
         - `start_datetime` (required): Start datetime in ISO format (yyyy-MM-dd'T'HH:mm:ss.SSSXXX)
         - `due_datetime` (optional): Due datetime in ISO format (yyyy-MM-dd'T'HH:mm:ss.SSSXXX)
-        - `user_id` (optional): User ID assigned to the task.
         - `linked_tasks` (optional): List if task ID that needs to be completed before this task
 
 3. GET api/tasks/<task_id>/
@@ -34,7 +33,6 @@
         - `priority` (optional): Task priority
         - `start_datetime` (required): Start datetime in ISO format (yyyy-MM-dd'T'HH:mm:ss.SSSXXX)
         - `due_datetime` (optional): Due datetime in ISO format (yyyy-MM-dd'T'HH:mm:ss.SSSXXX)
-        - `user_id` (optional): User ID assigned to the task.
         - `linked_tasks` (optional): List if task ID that needs to be completed before this task
 
 5. DELETE api/tasks/<task_id>/
@@ -103,15 +101,12 @@
 
 ## 4. Users
 
-1. GET api/users/
-    - Returns a list of all users
-
-2. GET /users/<user_id>/
+1. GET /users/<user_id>/
     - Returns details of a specific user
     - URL Parameters:
         - `user_id` (required): ID of the user
 
-3. PUT /users/<user_id>/
+2. PUT /users/<user_id>/
     - Updates an existing user
     - URL Parameters:
         - `user_id` (required): ID of the user
@@ -121,15 +116,21 @@
         - `last_name` (optional): User last name
         - `email` (optional): User email address
 
-4. DELETE /users/<user_id>/
+3. DELETE /users/<user_id>/
     - Deletes a specific user
     - URL Parameters:
         - `user_id` (required): ID of the user
 
-5. POST /users/register/
+4. POST /users/register/
    - Register user
    - Request Body:
      - `email` (required): user email address
      - `password` (required): user password 
      - `password2` (required): password that must match with password
      - `username` (required): username
+
+5. POST /token/
+   - auth user and get access and refresh tokens
+   - Request Body:
+     - `username` (required): username
+     - `password` (required): user password
