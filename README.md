@@ -54,7 +54,7 @@ This backend provides the following API endpoints:
     * GET /users/<user_id>/: Returns details of a specific user
     * PUT /users/<user_id>/: Update an existing user
     * PATCH /users/<user_id>/: Partial update an existing user
-    * DELETE /users/<user_id>/: Deletes a specific user
+    * PUT /users/<user_id>/: Change password an existing user
     * POST /users/register/: Register user
     * POST /token/: auth user and get access and refresh tokens
     * POST /token/refresh: get access token
