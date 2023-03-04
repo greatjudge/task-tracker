@@ -26,6 +26,20 @@
     - URL Parameters:
         - `task_id` (required)
     - Request Body:
+        - `title` (required): Task title
+        - `description` (optional): Task description
+        - `section` (required): Task section ID
+        - `status` (required): Task status ID, default `todo`
+        - `priority` (optional): Task priority
+        - `start_datetime` (required): Start datetime in ISO format (yyyy-MM-dd'T'HH:mm:ss.SSSXXX)
+        - `due_datetime` (optional): Due datetime in ISO format (yyyy-MM-dd'T'HH:mm:ss.SSSXXX)
+        - `linked_tasks` (optional): List if task ID that needs to be completed before this task
+
+5. PATCH api/tasks/<task_id>/
+    - Partial Update an existing task
+    - URL Parameters:
+        - `task_id` (required)
+    - Request Body:
         - `title` (optional): Task title
         - `description` (optional): Task description
         - `section` (optional): Task section ID
@@ -35,7 +49,7 @@
         - `due_datetime` (optional): Due datetime in ISO format (yyyy-MM-dd'T'HH:mm:ss.SSSXXX)
         - `linked_tasks` (optional): List if task ID that needs to be completed before this task
 
-5. DELETE api/tasks/<task_id>/
+6. DELETE api/tasks/<task_id>/
     - Deletes a specific task
     - URL Parameters:
         - `task_id` (required): ID of the task
@@ -62,10 +76,18 @@
     - URL Parameters:
         - `section_id` (required): ID of the task section
     - Request Body:
+       - `title` (required): Task section name
+       - `color` (optional): Task section color in HEX format
+
+5. PATCH api/sections/<section_id>/
+    - Partial Updates an existing task section
+    - URL Parameters:
+        - `section_id` (required): ID of the task section
+    - Request Body:
         - `title` (optional): Task section name
         - `color` (optional): Task section color in HEX format
 
-5. DELETE api/sections/<section_id>/
+6. DELETE api/sections/<section_id>/
     - Deletes a specific task section
     - URL Parameters:
         - `section_id` (required): ID of the task section
@@ -91,9 +113,16 @@
     - URL Parameters:
         - `status_id` (required): ID of the task status
     - Request Body:
+        - `title` (required): Task status name
+
+5. PATCH api/statuses/<status_id>/
+    - Partial Updates an existing task status
+    - URL Parameters:
+        - `status_id` (required): ID of the task status
+    - Request Body:
         - `title` (optional): Task status name
 
-5. DELETE api/statuses/<status_id>/
+6. DELETE api/statuses/<status_id>/
     - Deletes a specific task status
     - URL Parameters:
         - `status_id` (required): ID of the task status
@@ -111,15 +140,20 @@
     - URL Parameters:
         - `user_id` (required): ID of the user
     - Request Body:
-        - `username` (opt)
+        - `username` (required)
+        - `first_name` (optional): User first name
+        - `last_name` (optional): User last name
+        - `email` (required): User email address
+
+3. PATCH /users/<user_id>/
+    - Partial Updates an existing user
+    - URL Parameters:
+        - `user_id` (required): ID of the user
+    - Request Body:
+        - `username` (optional): username
         - `first_name` (optional): User first name
         - `last_name` (optional): User last name
         - `email` (optional): User email address
-
-3. DELETE /users/<user_id>/
-    - Deletes a specific user
-    - URL Parameters:
-        - `user_id` (required): ID of the user
 
 4. POST /users/register/
    - Register user
