@@ -135,27 +135,7 @@
     - URL Parameters:
         - `user_id` (required): ID of the user
 
-2. PUT /users/<user_id>/
-    - Updates an existing user
-    - URL Parameters:
-        - `user_id` (required): ID of the user
-    - Request Body:
-        - `username` (required)
-        - `first_name` (optional): User first name
-        - `last_name` (optional): User last name
-        - `email` (required): User email address
-
-3. PATCH /users/<user_id>/
-    - Partial Updates an existing user
-    - URL Parameters:
-        - `user_id` (required): ID of the user
-    - Request Body:
-        - `username` (optional): username
-        - `first_name` (optional): User first name
-        - `last_name` (optional): User last name
-        - `email` (optional): User email address
-
-4. POST /users/register/
+2. POST /users/register/
    - Register user
    - Request Body:
      - `email` (required): user email address
@@ -163,13 +143,41 @@
      - `password2` (required): password that must match with password
      - `username` (required): username
 
-5. POST /token/
+3. POST /token/
    - auth user and get access and refresh tokens
    - Request Body:
      - `username` (required): username
      - `password` (required): user password
 
-6. POST /token/refresh
+4. POST /token/refresh
    - get access token
    - Request Body:
      - `refresh` (required): refresh token
+
+5. PUT /users/change_password/<user_id>/
+   - Change password an existing user
+   - URL Parameters:
+        - `user_id` (required): ID of the user
+    - Request Body:
+        - `password` (required): user new password 
+        - `password2` (required): new password that must match with password
+        - `old_password` (required): opl password
+6. PUT /users/update_profile/<user_id>/
+   - Update profile of existing user
+   - URL Parameters:
+        - `user_id` (required): ID of the user
+    - Request Body:
+        - `username` (required): username
+        - `first_name` (optional): User first name
+        - `last_name` (optional): User last name
+        - `email` (required): User email address
+
+7. PATCH /users/update_profile/<user_id>/
+   - Update profile of existing user
+   - URL Parameters:
+        - `user_id` (required): ID of the user
+    - Request Body:
+        - `username` (optional): username
+        - `first_name` (optional): User first name
+        - `last_name` (optional): User last name
+        - `email` (optional): User email address
