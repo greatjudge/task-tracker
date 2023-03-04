@@ -27,30 +27,33 @@ The server will start running at `http://localhost:8000/`.
 ## API Endpoints
 This backend provides the following API endpoints:
 ### Task Endpoints
-    * GET /tasks: Get all tasks for the current user
-    * GET /tasks/:id: Get a specific task by ID
-    * POST /tasks: Create a new task
-    * PATCH /tasks/:id: Update a specific task by ID
-    * DELETE /tasks/:id: Delete a specific task by ID
+    * GET api/tasks: Get all tasks for the current user
+    * GET api/tasks/:id: Get a specific task by ID
+    * POST api/tasks: Create a new task
+    * PUT api/tasks/:id: Update a specific task by ID
+    * DELETE api/tasks/:id: Delete a specific task by ID
 
 ### Task Section Endpoints
-    * GET /sections: Get all sections for the current user
-    * GET /sections/:id: Get a specific section by ID
-    * POST /sections: Create a new section
-    * PATCH /sections/:id: Update a specific section by ID
-    * DELETE /sections/:id: Delete a specific section by ID
+    * GET api/sections: Get all sections for the current user
+    * GET api/sections/:id: Get a specific section by ID
+    * POST api/sections: Create a new section
+    * PUT api/sections/:id: Update a specific section by ID
+    * DELETE api/sections/:id: Delete a specific section by ID
     
 ### Task Status Endpoints
-    * GET /statuses: Get all statuses for the current user
-    * GET /statuses/:id: Get a specific status by ID
-    * POST /statuses: Create a new status
-    * PATCH /statuses/:id: Update a specific status by ID
-    * DELETE /statuses/:id: Delete a specific status by ID
-    
-### Reminder Endpoints
-    * GET /reminders: Get all reminders for the current user
-    * GET /reminders/:id: Get a specific reminder by ID
-    * POST /reminders: Create a new reminder
-    * PATCH /reminders/:id: Update a specific reminder by ID
-    * DELETE /reminders/:id: Delete a specific reminder by ID
-Note that these endpoints are just a suggestion and can be modified or expanded based on the specific requirements of the task-tracker project.
+    * GET api/statuses: Get all statuses for the current user
+    * GET api/statuses/:id: Get a specific status by ID
+    * POST api/statuses: Create a new status
+    * PUT api/statuses/:id: Update a specific status by ID
+    * DELETE api/statuses/:id: Delete a specific status by ID
+
+## User Endpoints
+  * GET /users/<user_id>/: Returns details of a specific user
+  * PUT /users/<user_id>/: Updates an existing user
+  * DELETE /users/<user_id>/: Deletes a specific user
+  * POST /users/register/: Register user
+  * POST /token/: auth user and get access and refresh tokens
+  * POST /token/refresh: get access token
+
+
+
