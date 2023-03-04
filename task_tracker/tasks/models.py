@@ -1,29 +1,25 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.core.validators import (
+    MaxValueValidator,
+    MinValueValidator,
+    RegexValidator
+)
+
 
 User = get_user_model()
 
-TASK_SECTION = [
-    ('personal', 'Personal'),
-    ('work', 'Work'),
-    ('study', 'Study')
-]
-
-TASK_STATUS = [
-    ('todo', 'To Do'),
-    ('in_progress', 'In Progress'),
-    ('done', 'Done')
-]
 
 DEFAULT_SECTION = {'title': 'Личное',
                    'color': '#ffffff'}
 DEFAULT_STATUS = {'title': 'Сделать'}
 
 
-
 class TaskSection(models.Model):
     title = models.CharField(max_length=100)
-    color = models.CharField(max_length=7, default="#ffffff")
+    color = models.CharField(max_length=7, default="#ffffff", validators=[
+        RegexValidator(regex=r"^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$")
+    ])
     user = models.ForeignKey(User,
                              on_delete=models.CASCADE,
                              related_name='task_sections')
@@ -52,8 +48,9 @@ class Task(models.Model):
     status = models.ForeignKey(TaskStatus,
                                on_delete=models.CASCADE,
                                limit_choices_to={'user': models.F('user')})
-    # status = models.CharField(choices=TASK_STATUS, blank=True)  # FIX
-    priority = models.IntegerChoices('Priority', 'ONE TWO THREE FOUR FIVE')
+    priority = models.SmallIntegerField(validators=[MinValueValidator(1),
+                                                    MaxValueValidator(5)],
+                                        blank=True, null=True)
     linked_tasks = models.ManyToManyField('self', blank=True,
                                           symmetrical=False,
                                           related_name='required_by')
