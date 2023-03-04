@@ -11,6 +11,9 @@ class TasksList(generics.ListCreateAPIView):
     def get_queryset(self):
         return Task.objects.filter(user=self.request.user)
 
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
 
 class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
@@ -20,12 +23,15 @@ class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
         return Task.objects.filter(user=self.request.user)
 
 
-class TaskSectionList(generics.ListAPIView):
+class TaskSectionList(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = TaskSectionSerializer
 
     def get_queryset(self):
         return TaskSection.objects.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
 
 class TaskSectionDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -36,12 +42,15 @@ class TaskSectionDetail(generics.RetrieveUpdateDestroyAPIView):
         return TaskSection.objects.filter(user=self.request.user)
 
 
-class TaskStatusList(generics.ListAPIView):
+class TaskStatusList(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = TaskStatusSerializer
 
     def get_queryset(self):
         return TaskStatus.objects.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
 
 class TaskStatusDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -50,4 +59,7 @@ class TaskStatusDetail(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return TaskStatus.objects.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
