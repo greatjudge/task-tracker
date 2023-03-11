@@ -10,7 +10,7 @@
         - `title` (required): Task title
         - `description` (optional): Task description
         - `section` (required): Task section ID
-        - `status` (required): Task status ID, default `todo`
+        - `status` (required): Task status ID
         - `priority` (optional): Task priority
         - `start_datetime` (required): Start datetime in ISO format (yyyy-MM-dd'T'HH:mm:ss.SSSXXX)
         - `due_datetime` (optional): Due datetime in ISO format (yyyy-MM-dd'T'HH:mm:ss.SSSXXX)
@@ -29,7 +29,7 @@
         - `title` (required): Task title
         - `description` (optional): Task description
         - `section` (required): Task section ID
-        - `status` (required): Task status ID, default `todo`
+        - `status` (required): Task status ID
         - `priority` (optional): Task priority
         - `start_datetime` (required): Start datetime in ISO format (yyyy-MM-dd'T'HH:mm:ss.SSSXXX)
         - `due_datetime` (optional): Due datetime in ISO format (yyyy-MM-dd'T'HH:mm:ss.SSSXXX)
