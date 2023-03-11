@@ -5,27 +5,27 @@ services:
     image: nginx
     volumes:
       - ./nginx:/etc/nginx/conf.d:ro
-      - ../frontend/static:/data/static:ro
+#      - ../frontend/static:/data/static:ro
       - ./log:/var/log/nginx
     ports:
       - "80:80"
     depends_on:
       - backend
   backend:
-    build: ../backend/
+    build: ./
     env_file:
-      ../backend/.env
+      ./.env
     expose:
       - 8000
     depends_on:
       - postgres
-    command: sh -c ../backend-entrypoint.sh
+    command: sh -c ./backend-entrypoint.sh
     restart: unless-stopped
   postgres:
     container_name: postgres
     image: postgres
     env_file:
-      .env.db
+      ./.env.db
     environment:
       PGDATA: "var/lib/postgresql/data/"
     expose:
