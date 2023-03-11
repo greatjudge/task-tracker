@@ -10,7 +10,7 @@ To run this backend, you will need to have the following installed on your syste
    * Python
    * Django
    * Django REST framework
-   * Some DB
+   * Postgres
 
 ## Installation
 1. Clone the repository.
@@ -20,6 +20,8 @@ To run this backend, you will need to have the following installed on your syste
 5. Install the dependencies: `pip install -r requirements.txt`.
 6. Dont remember to set django secter key. You can create the file .env in the same folder with settings.py and write to it `DJANGO_SECRET_KEY`="...(this key)...".
 8. Run the database migrations: `python manage.py migrate`.
+
+Or you can use `docker-compose.yml`
 
 ## Usage
 To start the server, run the following command: `python manage.py runserver`.  
